@@ -16,6 +16,12 @@ public class GugudanServlet extends HttpServlet {
     resp.setCharacterEncoding("UTF-8"); // HTML의 인코을 UTF-8로 해석
     resp.setContentType("text/html; charset=utf-8");  // 브라우저에게 결과물이 UTF-8이라고 말하는 의미
 
-    resp.getWriter().append("구구단!");
+    int dan = Integer.parseInt(req.getParameter("dan"));  // ?dan=9
+
+    resp.getWriter().append("<h>%d단</h1>\n".formatted(dan));
+
+    for (int i = 1; i <= 9; i++) {
+      resp.getWriter().append("<div>%d * %d = %d</div>\n".formatted(dan, i, dan * i));
+    }
   }
 }
