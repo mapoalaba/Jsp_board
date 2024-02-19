@@ -16,6 +16,7 @@ public class GugudanServlet extends HttpServlet {
     Rq rq = new Rq(req, resp);
 
     int dan = rq.getIntparam("dan", 9);  // ?dan=9
+    int limit = rq.getIntparam("limit", 9);
 
     rq.appendBody("<h>%d단</h1>\n".formatted(dan));
 
